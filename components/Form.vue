@@ -1,12 +1,12 @@
 <template>
-  <Form />
+  <FormInputs />
 </template>
 
 <script>
-import Form from "~/components/Form";
+import FormInputs from "./FormInputs";
 export default {
   components: {
-    Form
+    FormInputs
   }
 };
 </script>
