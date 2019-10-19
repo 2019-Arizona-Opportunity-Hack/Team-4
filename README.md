@@ -1,6 +1,6 @@
 # oh2019
 
-> get help quickly
+> get help quickly from anywhere
 
 ## Build Setup
 
