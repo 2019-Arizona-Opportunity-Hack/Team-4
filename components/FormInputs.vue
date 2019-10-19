@@ -1,25 +1,27 @@
 <template>
   <v-card>
-    <v-form v-model="valid">
+    <v-form>
+      <!-- email input box -->
       <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
-
-      <input type="radio" id="male" value="Female" v-model="picked" />
-      <label for="Male">Male</label>
+      <!-- code word input box -->
+      <v-text-field v-model="codeWord" label="Code Words" required></v-text-field>
+      <!-- male or female toggle -->
+      <v-radio-group>
+        <v-radio label="Male" value="Male" v-model="gender" />
+        <v-radio label="Female" value="Female" v-model="gender" />
+      </v-radio-group>
       <br />
-      <input type="radio" id="female" value="Male" v-model="picked" />
-      <label for="Female">Female</label>
-      <br />
-
+      <!-- kids toggle and amount -->
       <v-checkbox v-model="kids" label="Do you have kids?"></v-checkbox>
       <v-text-field :disabled="!kids" v-model="numKids" hide-details single-line type="number" />
-
-      <div>
-        <v-checkbox v-model="cab" label="Cab"></v-checkbox>
-        <v-checkbox v-model="lodging" label="Lodging"></v-checkbox>
+      <!-- checkboxes for services needed -->
+      <h1>What Assistance Do You Need?</h1>
+      <div class="flexRow">
+        <v-checkbox v-model="cab" label="Cab" selected-color="blue" class="increaseMargin"></v-checkbox>
+        <v-checkbox v-model="lodging" label="Lodging" class="increaseMargin"></v-checkbox>
         <v-checkbox v-model="moving" label="Moving Service"></v-checkbox>
-        <br />
       </div>
-
+      <!-- cross streets input box -->
       <v-text-field v-model="crossStreets" label="Location (Cross Streets)"></v-text-field>
     </v-form>
   </v-card>
@@ -39,10 +41,20 @@ export default {
     numKids: 0,
     cab: false,
     lodging: false,
-    moving: false
+    moving: false,
+    crossStreets: "",
+    gender: "",
+    codeWord: ""
   })
 };
 </script>
 
 <style scoped>
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}
+.increaseMargin {
+  margin-right: 10px;
+}
 </style>
